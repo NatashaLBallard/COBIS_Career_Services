@@ -4,11 +4,13 @@ package com.cobis_career_services.demo.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 public class AppUser {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -18,6 +20,7 @@ public class AppUser {
 
     @NotEmpty
     private String password;
+
 
     @ManyToMany()
     private Set<AppRole> roles;

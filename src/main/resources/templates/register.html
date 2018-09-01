@@ -8,12 +8,13 @@
 <h1>Register a user</h1>
 <form th:action="@{/register}" th:object="${newuser}" method="post">
 
-    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span><br/>
-    <input type="text" placeholder="Enter username" th:field="*{username}">
+    <p>Enter Username <br/>
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span><br/>
+        <input type="text" placeholder="Username" th:field="*{username}"><br/></p>
 
-    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span><br/>
-    <input type="password" placeholder="Enter password" th:field="*{password}">
-
+    <p>Enter Password <br/>
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span><br/>
+        <input type="password" placeholder="Password" th:field="*{password}"><br/></p>
 
     <input type="submit" value="Submit">
 

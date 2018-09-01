@@ -1,6 +1,8 @@
 package com.cobis_career_services.demo;
 
+import com.cobis_career_services.demo.forms.Account;
 import com.cobis_career_services.demo.model.AppUser;
+import com.cobis_career_services.demo.repositories.AccountRepository;
 import com.cobis_career_services.demo.repositories.AppRoleRepository;
 import com.cobis_career_services.demo.repositories.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,5 +83,56 @@ public class MainController {
     {
         return "logout";
     }
+
+
+
+
+
+    //Account Information
+
+    @Autowired
+    AccountRepository accountRepository;
+
+    @RequestMapping("/viewAccount")
+    public String listAccount(Model model) {
+        model.addAttribute("accounts", accountRepository.findAll());
+        return "viewAccount";
+    }
+
+    @GetMapping("/createAccount")
+    public String accountForm(Model model) {
+        model.addAttribute("account", new Account());
+        return "createAccount";
+    }
+
+    @PostMapping("/processAccount")
+    public String processAccountForm(@Valid Account account, BindingResult result) {
+        if (result.hasErrors()) {
+            return "viewAccount";
+
+        }
+        accountRepository.save(account);
+        return "redirect:/viewAccount";
+    }
+
+
+
+
+
+//
+//    @RequestMapping("/display")
+//    public String showContactOnDisplay( Model model) {
+//        model.addAttribute("contacts", contactRepository.findAll());
+//        return "display";
+//    }
+//
+//    @RequestMapping("/viewAccount")
+//    public String viewAccountDetails()
+//    {
+//        return "viewAccount";
+//    }
+
+
+
 
 }

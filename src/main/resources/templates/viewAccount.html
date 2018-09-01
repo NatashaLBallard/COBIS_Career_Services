@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+
+<h3>Account Details</h3>
+<table border="1">
+    <tr>
+        <!--Education-->
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>City</th>
+        <th>State</th>
+        <th>University/College</th>
+        <th>Major</th>
+
+
+
+
+    </tr>
+    <tr th:each="account: ${accounts}" >
+        <!-- Education-->
+        <td th:text="${account.firstName}"></td>
+        <td th:text="${account.lastName}"></td>
+        <td th:text="${account.email}"></td>
+        <td th:text="${account.phoneNumber}"></td>
+        <td th:text="${account.city}"></td>
+        <td th:text="${account.state}"></td>
+        <td th:text="${account.university}"></td>
+        <td th:text="${account.major}"></td>
+
+        <!--<td>-->
+            <!--<a th:href="@{/update-education/{id}(id=${education.id})}">Update</a>-->
+            <!--<a th:href="@{/detail-education/{id}(id=${education.id})}">Details</a>-->
+            <!--<a th:href="@{/delete-education/{id}(id=${education.id})}">Delete</a>-->
+        <!--</td>-->
+    </tr>
+</table>
+
+
+</body>
+</html>
