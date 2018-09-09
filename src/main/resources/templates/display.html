@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Summary</title>
+</head>
+<body>
+<a href="/add">Add Resume</a>
+
+<br/><br/>
+<h3>General</h3>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>LinkedIn</th>
+        <th>GitHub</th>
+        <th>Twitter</th>
+    </tr>
+
+    <tr th:each="resume: ${resumes}">
+        <!--General Education-->
+        <td th:text="${resume.name}"></td>
+        <td th:text="${resume.email}"></td>
+        <td th:text="${resume.linkedin}"></td>
+        <td th:text="${resume.github}"></td>
+        <td th:text="${resume.twitter}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${resume.id})}">Update</a>
+            <!--<a th:href="@{/detail/{id}(id=${resume.id})}">Details</a>-->
+            <a th:href="@{/delete/{id}(id=${resume.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+
+
+<!--<br/><br/>-->
+<!--<h3>General</h3>-->
+<!--<table border="1">-->
+    <!--<tr th:each="resume: ${resumes}">-->
+        <!--<td>-->
+            <!--<a th:href="@{/update/{id}(id=${resume.id})}">Update</a>-->
+            <!--<a th:href="@{/detail/{id}(id=${resume.id})}">Details</a>-->
+            <!--<a th:href="@{/delete/{id}(id=${resume.id})}">Delete</a>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</table>-->
+</body>
+</html>

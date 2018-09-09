@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Display of Resume</title>
+</head>
+<body>
+<a href="/display">Show All Resumes</a><br/>
+
+
+<!--<h2>General</h2>-->
+<!--<table>-->
+
+    <!--<tr th:each="resume: ${resumes}">-->
+
+<!--<span th:text="${resume.name}"></span><br/>-->
+<!--<td th:href="@{'mailto:'+${resume.email}}" target="_blank"><span th:text="${resume.email}"></span></td><br/>-->
+<!--<td th:href="@{'//'+${resume.linkedin}}" target="_blank"><span th:text="${resume.linkedin}"></span></td><br/>-->
+<!--<td th:href="@{'//'+${resume.github}}" target="_blank"><span th:text="${resume.github}"></span></td><br/>-->
+<!--<td th:href="@{'//'+${resume.twitter}}" target="_blank"><span th:text="${resume.twitter}"></span></td><br/>-->
+
+    <!--<td th:href="@{/delete/{id}(id=${resume.id})}">Delete this course</td>-->
+    <!--</tr>-->
+<!--</table>-->
+<!--<br/>-->
+
+
+<!--<h2>General</h2>-->
+<!--<span th:text="${resume.name}"></span><br/>-->
+<!--<a th:href="@{'mailto:'+${resume.email}}" target="_blank"><span th:text="${resume.email}"></span></a><br/>-->
+<!--<a th:href="@{'//'+${resume.linkedin}}" target="_blank"><span th:text="${resume.linkedin}"></span></a><br/>-->
+<!--<a th:href="@{'//'+${resume.github}}" target="_blank"><span th:text="${resume.github}"></span></a><br/>-->
+<!--<a th:href="@{'//'+${resume.twitter}}" target="_blank"><span th:text="${resume.twitter}"></span></a><br/>-->
+<!--<a th:href="@{/delete/{id}(id=${resume.id})}">Delete this course</a>-->
+<!--<br/>-->
+
+
+
+<!--<table border="1">-->
+    <!--<tr>-->
+        <!--<th>Name</th>-->
+        <!--<th>Email</th>-->
+        <!--<th>LinkedIn</th>-->
+        <!--<th>GitHub</th>-->
+        <!--<th>Twitter</th>-->
+    <!--</tr>-->
+
+    <!--<tr th:each="resume: ${resumes}">-->
+        <!--&lt;!&ndash;General Education&ndash;&gt;-->
+        <!--<td th:text="${resume.name}"></td>-->
+        <!--<td th:text="${resume.email}"></td>-->
+        <!--<td th:text="${resume.linkedin}"></td>-->
+        <!--<td th:text="${resume.github}"></td>-->
+        <!--<td th:text="${resume.twitter}"></td>-->
+        <!--<td>-->
+            <!--<a th:href="@{/delete/{id}(id=${resume.id})}">Delete</a>-->
+        <!--</td>-->
+    <!--</tr>-->
+<!--</table>-->
+
+
+<h2>General</h2>
+<!--<span th:text="${resume.name}"></span><br/>-->
+<a th:href="@{'mailto:'+${resume.email}}" target="_blank"><span th:text="${resume.email}"></span></a><br/>
+<a th:href="@{'//'+${resume.linkedin}}" target="_blank"><span th:text="${resume.linkedin}"></span></a><br/>
+<a th:href="@{'//'+${resume.github}}" target="_blank"><span th:text="${resume.github}"></span></a><br/>
+<a th:href="@{'//'+${resume.twitter}}" target="_blank"><span th:text="${resume.twitter}"></span></a><br/>
+<br/>
+
+
+<br/>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Create A Resume</title>
+</head>
+<body>
+<form action="#"
+      th:action="@{/process}"
+      th:object="${resume}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <h2>General</h2>
+    Name: <input type="text" th:field="*{name}" />
+    <span th:if="${#fields.hasErrors('name')}"
+          th:errors="*{name}"></span><br/>
+
+    Email: <input type="text" th:field="*{email}" />
+    <span th:if="${#fields.hasErrors('email')}"
+          th:errors="*{email}"></span><br/>
+
+    LinkedIn: <input type="text" th:field="*{linkedin}" />
+    <span th:if="${#fields.hasErrors('linkedin')}"
+          th:errors="*{linkedin}"></span><br/>
+
+    GitHub: <input type="text" th:field="*{github}" />
+    <span th:if="${#fields.hasErrors('github')}"
+          th:errors="*{github}"></span><br/>
+
+    Twitter: <input type="text" th:field="*{twitter}" />
+    <span th:if="${#fields.hasErrors('twitter')}"
+          th:errors="*{twitter}"></span><br/>
+    <br/>
+    <hr/>
+    <input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>
