@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Register User</title>
+</head>
+<body>
+<h1>Register a user</h1>
+<form action="#"
+      th:action="@{/process-account}"
+      th:object="${account}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+
+    Enter First Name <br/>
+        <input type="firstName"  th:field="*{firstName}"/><br/>
+        <span th:if="${#fields.hasErrors('firstName')}"
+              th:errors="*{firstName}"></span><br/>
+
+
+    <p>Enter Last Name <br/>
+        <input type="lastName"  th:field="*{lastName}"/><br/>
+        <span th:if="${#fields.hasErrors('lastName')}"
+              th:errors="*{lastName}"></span><br/>
+    </p>
+
+    <p>Enter Email <br/>
+        <input type="email"  th:field="*{email}"/><br/>
+        <span th:if="${#fields.hasErrors('email')}"
+              th:errors="*{email}"></span><br/>
+    </p>
+
+    <p>Enter Phone Number <br/>
+        <input type="phoneNumber"  th:field="*{phoneNumber}"/><br/>
+        <span th:if="${#fields.hasErrors('phoneNumber')}"
+              th:errors="*{phoneNumber}"></span><br/>
+    </p>
+
+    <p>Enter City <br/>
+        <input type="city"  th:field="*{city}"/><br/>
+        <span th:if="${#fields.hasErrors('city')}"
+              th:errors="*{city}"></span><br/>
+    </p>
+
+    <p>Enter State <br/>
+        <input type="state"  th:field="*{state}"/><br/>
+        <span th:if="${#fields.hasErrors('state')}"
+              th:errors="*{state}"></span><br/>
+    </p>
+
+
+    <p>Enter University/College <br/>
+        <input type="university" th:field="*{university}"/><br/>
+        <span th:if="${#fields.hasErrors('university')}"
+              th:errors="*{university}"></span><br/>
+    </p>
+
+
+    <p>Enter Major <br/>
+        <input type="major" th:field="*{major}"/><br/>
+        <span th:if="${#fields.hasErrors('major')}"
+              th:errors="*{major}"></span><br/>
+    </p>
+
+
+    <input type="submit" value="Submit" />
+
+</form>
+</body>
+</html>

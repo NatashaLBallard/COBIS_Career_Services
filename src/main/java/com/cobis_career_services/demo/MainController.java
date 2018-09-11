@@ -1,9 +1,11 @@
 package com.cobis_career_services.demo;
 
 //import com.cobis_career_services.demo.forms.Account;
+import com.cobis_career_services.demo.forms.Account;
 import com.cobis_career_services.demo.forms.Resume;
 import com.cobis_career_services.demo.model.AppUser;
 //import com.cobis_career_services.demo.repositories.AccountRepository;
+import com.cobis_career_services.demo.repositories.AccountRepository;
 import com.cobis_career_services.demo.repositories.AppRoleRepository;
 import com.cobis_career_services.demo.repositories.AppUserRepository;
 import com.cobis_career_services.demo.repositories.ResumeRepository;
@@ -27,6 +29,9 @@ public class MainController {
 
     @Autowired
     ResumeRepository resumeRepository;
+
+    @Autowired
+    AccountRepository accountRepository;
 
 
     @Autowired
@@ -137,6 +142,8 @@ public class MainController {
 
 
 
+
+    // RESUME
     @RequestMapping("/display")
     public String listResumes(Model model) {
         model.addAttribute("resumes", resumeRepository.findAll());
@@ -178,12 +185,37 @@ public class MainController {
         return "redirect:/display";
     }
 
-//    @RequestMapping("/delete/{id}")
-//    public String delResume(@PathVariable("id") long id){
-//        resumeRepository.delete(id);
-//        return "redirect:/";
-//    }
 
+
+
+// --------------------------- ACCOUNT ---------------------------
+
+    @RequestMapping("/view-account")
+    public String listAccounts(Model model) {
+        model.addAttribute("accounts", accountRepository.findAll());
+        return "view-account";
+    }
+
+    @GetMapping("/add-account")
+    public String accountForm(Model model) {
+        model.addAttribute("account", new Account());
+        return "account-form";
+    }
+
+    @PostMapping("/process-account")
+    public String processAccountForm(@Valid Account account, BindingResult result) {
+        if (result.hasErrors()) {
+            return "account-form";
+        }
+        accountRepository.save(account);
+        return "redirect:/view-account";
+    }
+
+//    @RequestMapping("/update/{id}")
+//    public String updateAccount(@PathVariable("id") long id, Model model){
+//        model.addAttribute("account", accountRepository.findById(id));
+//        return "accountForm";
+//    }
 
 
 
